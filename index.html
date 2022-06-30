@@ -1,1 +1,147 @@
-Hello Worl
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width = device-width, initiaal-scale=1.0">
+        <title> Activités pour tous| Home page</title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="Accueil.css" />
+        <!--Javascript-->
+        <script src="Accueil.js"></script> 
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="background-color:	white;">
+     <header>
+    <!--navigation section-->
+    
+    <nav class="navbar navbar-expand-lg" id="myHeader" style="background: color #ded2a8 ; ">
+      <div class="row">
+        <div class="column">
+          <a class="navbar-brand" href="Accueil.html" style="font-family: Garamond;color: #699E3C;"><h1>Activités pour tous!</h1></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="column">
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="Accueil.html">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Activités.html">Activités</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="essaie.html">Réservation</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </nav>
+  </header>
+ 
+<!-- The video -->
+
+<video autoplay muted loop id="myVideo">
+    <source src="(2436) happy young people laughing and raising hands - YouTube - Google Chrome 2022-06-26 20-18-11_Trim_Trim.mp4" type="video/mp4">
+  </video>
+  
+  <!-- Optional: some overlay text to describe the video -->
+  <div class="content">
+    <h1>Un bon moment vous attend!</h1>
+    <p>Inscrivez-vous à une activité de votre choix dès maintenant!</p>
+    <a button type="button" class="btn btn-light" href="essaie.html">Réservez votre place!</a>
+  </div>
+  <!--texte entre-->
+  <div class="container">
+    <div class="but">
+    <h3>But de l'Entreprise</h3>
+    <h5>Activités pour tous offre des activités et des ateliers communautaires gratuits pour les gens de 
+      différentes tranches d’âge</h5>
+    </div>
+  </div>
+
+ 
+  <!--activité de tout âge-->
+  <div class="container">
+    <h2> Touvez une ativit.s selon votre groupe d'âge!</h2>
+  <div class="rowe">
+    <div class="columne">
+        <div class="overlay-box">
+            <img class ="img-overlay"src="enfants.jpg" alt="Enfants" style="width:100%">
+            <div class="overlay">
+              <div class="text">Activités pour enfants</div>
+            </div>
+          </div>
+     
+    </div>
+    <div class="columne">
+        <div class="overlay-box">
+            <img class ="img-overlay" src="personne-agée.jpg" alt="personnes agées" style="width:100%">
+            <div class="overlay">
+              <div class="text">Activités pour Personne agée</div>
+            </div>
+          </div>
+    </div>
+    <div class="columne">
+        <div class="overlay-box">
+            <img class ="img-overlay"src="Famille_2.jpg" alt="Famille" style="width:100%">
+            <div class="overlay">
+              <div class="text">Activités pour famille</div>
+            </div>
+          </div>
+     
+    </div>
+  </div>
+  <div class="rowe">
+    <div class="columne">
+        <div class="overlay-box">
+            <img class ="img-overlay"src="femmes.jpg" alt="Enfants" style="width:100%">
+            <div class="overlay">
+              <div class="text">Activités pour femmes</div>
+            </div>
+          </div>
+     
+    </div>
+    <div class="columne">
+        <div class="overlay-box">
+            <img class ="img-overlay" src="homme.jpg" alt="personnes agées" style="width:100%">
+            <div class="overlay">
+              <div class="text">Activités pour hommes</div>
+            </div>
+          </div>
+    </div>
+    <div class="columne">
+        <div class="overlay-box">
+            <img class ="img-overlay"src="ado.jpg" alt="Famille" style="width:100%">
+            <div class="overlay">
+              <div class="text">Activités pour adolescents</div>
+            </div>
+          </div>
+     
+    </div>
+  </div>
+</div>
+<!--footer-->
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+        <span class="text-muted">© 2021 Company, Inc</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+      </ul>
+    </footer>
+  </div>
+</body>

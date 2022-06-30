@@ -1,0 +1,124 @@
+@import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
+html {
+    overflow-x: hidden;  
+    /* other styling */
+    border-radius: 0px;
+    height: max-content;
+    margin: auto;
+    
+  }
+  /*********************************************************************************************navigation bar*/
+  .row{
+    padding: 25px;
+  }
+  .column {
+    float: left;
+    width: 50%;
+  }
+  .nav-item.active {
+    padding-left: 72px;
+    color: #C7AB59;
+  }
+  /* The sticky class is added to the header with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 102px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    padding-left: 500px;
+  }
+  .navbar navbar-expand-lg{
+    position:fixed;
+    background-color: #fff;
+  }
+  /************************************************************comments*/
+  body {
+    font-family: 'Calibri', sans-serif !important;
+}
+
+.card-no-border .card {
+    border: 0px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05)
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem
+}
+
+.comment-widgets .comment-row:hover {
+    background: rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+}
+
+.comment-widgets .comment-row {
+    border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+    padding: 15px;
+}
+.comment-text:hover{
+    visibility: hidden;
+}
+.comment-text:hover{
+    visibility: visible;
+}
+
+.label {
+    padding: 3px 10px;
+    line-height: 13px;
+    color: #ffffff;
+    font-weight: 400;
+    border-radius: 4px;
+    font-size: 75%;
+}
+
+.round img {
+    border-radius: 100%;
+}
+
+.label-info {
+    background-color: #1976d2;
+}
+
+.label-success {
+    background-color: green;
+}
+
+.label-danger {
+    background-color: #ef5350;
+}
+
+.action-icons a {
+    padding-left: 7px;
+    vertical-align: middle;
+    color: #99abb4;
+}
+
+.action-icons a:hover {
+    color: #1976d2;
+}
+
+.mt-100 {
+    margin-top: 100px
+}
+
+.mb-100 {
+    margin-bottom: 100px
+}
+.textarea {
+    width: inherit;
+}

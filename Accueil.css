@@ -1,0 +1,139 @@
+html {
+    overflow-x: hidden;  
+    /* other styling */
+    border-radius: 0px;
+    height: max-content;
+    margin: auto;
+    
+  }
+  /*********************************************************************************************navigation bar*/
+  .row{
+  
+  }
+  .column {
+    float: left;
+   
+  }
+  div#navbarText {
+    padding-left: 500px;
+}
+  .nav-item.active {
+    padding-left: 72px;
+    color: #C7AB59;
+  }
+  /* The sticky class is added to the header with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 102px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    padding-left: 500px;
+  }
+  .navbar navbar-expand-lg{
+    position:fixed;
+    background-color: #fff;
+  }
+/*But*/
+.but{
+  padding: 145px;
+ font-family: Garamond;
+}
+  /*overlay*/
+  .overlay-box {
+    position: relative;
+    width: 100%;
+  }
+  
+  .img-overlay {
+    display: block;
+    width: 100%;
+    height: 270px;
+    padding: 10px;
+   
+  }
+  .columne {
+    float: left;
+    width: 33.33%;
+  }
+  
+  /* Clear floats after the columns */
+  .rowe:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color:  #ded2a8;;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+  }
+  
+  .overlay-box:hover .overlay {
+    height: 100%;
+  }
+  
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  /* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  
+  /* Add some content at the bottom of the video/page */
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    background-color: #ded2a8;;
+    opacity: 0.8;
+    padding: 137px;
+    
+  }
+  
+  /* Style the button used to pause/play the video */
+  #myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #myBtn:hover {
+    background: #ddd;
+    color: black;
+  }
