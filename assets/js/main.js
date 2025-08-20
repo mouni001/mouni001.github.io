@@ -355,4 +355,43 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })();
 
+//////cursor
+// Pointer-reactive glow for cards
+function attachGlow(selector) {
+  document.querySelectorAll(selector).forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', `${e.clientX - r.left}px`);
+      el.style.setProperty('--my', `${e.clientY - r.top}px`);
+    });
+  });
+}
+document.addEventListener('DOMContentLoaded', () => {
+  attachGlow('.skillcard, .portfolio__content');
+});
+///little tilte
+
+function attachTilt(selector, max = 6) {
+  const els = document.querySelectorAll(selector);
+  els.forEach(el => {
+    let rafId = null;
+    const leave = () => { el.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)'; };
+    const move = (e) => {
+      const b = el.getBoundingClientRect();
+      const cx = b.left + b.width/2, cy = b.top + b.height/2;
+      const dx = (e.clientX - cx)/ (b.width/2);
+      const dy = (e.clientY - cy)/ (b.height/2);
+      const rx = (-dy * max).toFixed(2);
+      const ry = ( dx * max).toFixed(2);
+      el.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`;
+    };
+    el.addEventListener('mousemove', e => { cancelAnimationFrame(rafId); rafId = requestAnimationFrame(() => move(e)); });
+    el.addEventListener('mouseleave', () => { cancelAnimationFrame(rafId); leave(); });
+  });
+}
+document.addEventListener('DOMContentLoaded', () => {
+  attachTilt('.skillcard, .portfolio__content');
+});
+
+/*==================== HERO DEPTH====================*/
 

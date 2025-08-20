@@ -22,64 +22,82 @@
 <body>
   <header class="header" id="header">
     <nav class="nav container">
-      <a href="#" class="nav__logo"><i class="uil uil-circle"></i> Mounira</a>
+      <!-- Link the logo to #home (not just '#') -->
+      <a href="#home" class="nav__logo" aria-label="Go to home"><i class="uil uil-circle"></i> Mounira</a>
 
-      <div class="nav__menu" id="nav-menu">
+      <div class="nav__menu" id="nav-menu" aria-hidden="true">
         <ul class="nav__list grid">
           <li class="nav__item">
             <a href="#home" class="nav__link active-link">
-              <i class="uil uil-estate nav__icon"></i> Home
+              <i class="uil uil-estate nav__icon" aria-hidden="true"></i> Home
             </a>
           </li>
 
           <li class="nav__item">
             <a href="#about" class="nav__link">
-              <i class="uil uil-user nav__icon"></i> About
-            </a>
-          </li>
-          
-          <li class="nav__item">
-            <a href="#experience" class="nav__link">
-              <i class="uil uil-briefcase-alt nav__icon"></i> Experience
+              <i class="uil uil-user nav__icon" aria-hidden="true"></i> About
             </a>
           </li>
 
           <li class="nav__item">
             <a href="#skills" class="nav__link">
-              <i class="uil uil-chart-pie-alt nav__icon"></i> Skills
-            </a>
-          </li>
-
-          <li class="nav__item">
-            <a href="#research" class="nav__link">
-              <i class="uil uil-flask nav__icon"></i> Research
+              <i class="uil uil-chart-pie-alt nav__icon" aria-hidden="true"></i> Skills
             </a>
           </li>
 
           <li class="nav__item">
             <a href="#projects" class="nav__link">
-              <i class="uil uil-scenery nav__icon"></i> Projects
+              <i class="uil uil-scenery nav__icon" aria-hidden="true"></i> Projects
             </a>
           </li>
 
           <li class="nav__item">
+            <a href="#research" class="nav__link">
+              <i class="uil uil-flask nav__icon" aria-hidden="true"></i> Research
+            </a>
+          </li>
+          
+          <!-- FIX: there is no #experience section; point to #journey -->
+          <li class="nav__item">
+            <a href="#journey" class="nav__link">
+              <i class="uil uil-briefcase-alt nav__icon" aria-hidden="true"></i> Experience
+            </a>
+          </li>
+          
+          <li class="nav__item">
+            <a href="#leadership" class="nav__link">
+              <i class="uil uil-briefcase-alt nav__icon" aria-hidden="true"></i> Leadership
+            </a>
+          </li>
+
+        
+
+          <li class="nav__item">
             <a href="#contact" class="nav__link">
-              <i class="uil uil-message nav__icon"></i> Contact
+              <i class="uil uil-message nav__icon" aria-hidden="true"></i> Contact
             </a>
           </li>
         </ul>
         
-        <i class="uil uil-times nav__close" id="nav-close"></i>
+        <!-- Make the close control a button with ARIA -->
+        <button class="nav__close" id="nav-close" aria-label="Close menu">
+          <i class="uil uil-times" aria-hidden="true"></i>
+        </button>
       </div>
 
       <div class="nav__btns">
-        <i class="uil uil-moon change-theme" id="theme-button"></i>
+        <!-- Add aria-labels to interactive icons -->
+        <button class="change-theme" id="theme-button" aria-label="Toggle dark mode">
+          <i class="uil uil-moon" aria-hidden="true"></i>
+        </button>
 
-        <div class="nav__toggle" id="nav-toggle">
-          <i class="uil uil-apps"></i>
-        </div>
+        <button class="nav__toggle" id="nav-toggle"
+                aria-label="Open menu" aria-controls="nav-menu" aria-expanded="false">
+          <i class="uil uil-apps" aria-hidden="true"></i>
+        </button>
       </div>
     </nav>
+
   </header>
 
   <main class="main">
@@ -88,7 +106,7 @@
       <div class="home__container container grid">
         <div class="home__content grid">
           <div class="home__social">
-            <a href="https://www.linkedin.com/in/mounira-zitouni/" target="_blank" class="home__social-icon">
+            <a href="https://www.linkedin.com/in/mounira-nihad-zitouni/" target="_blank" class="home__social-icon">
               <i class="uil uil-linkedin-alt"></i>
             </a>
 
@@ -101,32 +119,15 @@
             </a>
           </div>
 
-          <div class="home__img">
-            <!-- Optional blob/photo
-            <svg class="home__blob" viewBox="0 0 200 187" aria-hidden="true">
-              <mask id="mask0" mask-type="alpha">
-                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
-              </mask>
-              <g mask="url(#mask0)">
-                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-                165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
-                129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
-                -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
-                <image class="home__blob-img" x="15" y="12" xlink:href="./assets/img/me.png"/>
-              </g>
-            </svg>
-            -->
-          </div>
+          <!-- HERO PHOTO: rounded, floating, right side -->
+
 
           <div class="home__data">
             <h1 class="home__title">Hi, I'm Mounira 👋</h1>
             <h3 class="home__subtitle">AI Researcher • Software Engineer • Problem Solver</h3>
             
             <p class="home__description">
-              Master's in Applied AI @ University of Ottawa 🎓 | Machine Learning • LLMs • Data Science | 
+              Master's in Applied AI @ University of Ottawa 🎓 | Machine Learning • LLMs • Software Engineering | 
               Passionate about building intelligent systems that adapt, learn, and make an impact.
             </p>
             
@@ -134,7 +135,11 @@
               Contact Me <i class="uil uil-message button__icon"></i>
             </a>
           </div>
+          <div class="hero-photo is-right">
+            <img src="./assets/img/me.jpg" alt="Mounira portrait" />
+          </div>
         </div>
+        
 
         <div class="home__scroll">
           <a href="#about" class="home__scroll-button button--flex">
@@ -152,20 +157,19 @@
       <span class="section__subtitle">My Introduction</span>
 
       <div class="about__container container grid">
-        <img src="./assets/img/about_section.jpeg" alt="Mounira portrait" class="about__img">
+        <img src="./assets/img/about_section.jpg" alt="Mounira portrait" class="about__img">
 
         <div class="about__data">
           <p class="about__description">
-            I’m <strong>Mounira Zitouni</strong>, an ML engineer and applied AI researcher passionate about building
-            <strong>scalable, production-ready machine learning systems</strong>. My work spans <strong>large language models</strong>,
-            <strong>retrieval-augmented generation (RAG)</strong> over <strong>Neo4j knowledge graphs</strong>, and <strong>online learning
-            frameworks</strong> that adapt under drift and severe class imbalance. I co-authored a peer-reviewed paper on
-            <em>LLM-driven specification generation</em>, and I’ve engineered data pipelines that process
-            <strong>millions of records</strong> with <strong>PyTorch, TensorFlow, and River</strong>. Beyond research, I’ve shipped
-            automation and backend services as an <strong>SRE</strong> — from <em>Google Docs API bots</em> to <strong>CI/CD pipelines</strong> on
-            <strong>Azure</strong> and <strong>GCP</strong>. I focus on building ML that is not just accurate, but
-            <em>reliable, explainable, and deployable at scale</em>.
-        </p>
+            I’m <strong>Mounira Zitouni</strong>, an ML engineer and AI researcher turning ideas into 
+            <strong>scalable, production-ready systems</strong>. My work spans <strong>LLMs</strong>, 
+            <strong>retrieval-augmented generation (RAG)</strong>, and <strong>online learning that adapts under drift & imbalance</strong>. 
+            I’ve co-authored peer-reviewed AI research, built <strong>data pipelines processing millions</strong>, 
+            and deployed solutions with <strong>PyTorch, TensorFlow, River, Azure, and GCP</strong>. 
+            My focus: ML that’s <em>accurate, explainable, and truly deployable</em>.
+          </p>
+
+
 
 
           <div class="about__info">
@@ -192,6 +196,306 @@
           </div>
         </div>
       </div>
+    </section>
+    
+<!-- SKILLS — Always-visible, expanded ML/AI focus -->
+<section class="skills section" id="skills">
+  <h2 class="section__title">Skills</h2>
+  <span class="section__subtitle">AI-first engineer • Core ML • NLP • AI Security • AI Ethics</span>
+
+  <!-- animated highlight ticker (kept) -->
+  <div class="skills__ticker" aria-hidden="true">
+    <div class="skills__ticker-track">
+      <span>LLMs</span><span>Transformers</span><span>RAG</span><span>Online Learning</span>
+      <span>Drift Detection</span><span>PyTorch</span><span>TensorFlow</span><span>Neo4j</span>
+      <span>Data Privacy</span><span>Adversarial ML</span><span>Bias & Fairness</span><span>Explainability</span>
+      <span>CI/CD</span><span>Docker</span><span>GCP</span><span>Azure</span>
+    </div>
+  </div>
+
+  <!-- categories (all visible) -->
+  <div class="skills__container container">
+    <!-- ========== ML / AI (Core) ========== -->
+    <article class="skillcard">
+      <div class="skillcard__glow"></div>
+      <div class="skillcard__head"><i class="uil uil-brain skillcard__icon"></i><h3 class="skillcard__title">Machine Learning (Core)</h3></div>
+      <p class="skillcard__desc">Fundamentals + hands-on training & evaluation</p>
+      <div class="skillcard__chips">
+        <span>Supervised/Unsupervised</span><span>Regularization</span><span>Cross-Validation</span>
+        <span>Ensembles</span><span>Hyperparameter Tuning</span><span>Metrics (F1/AUC-PR)</span>
+        <span>Imbalanced Learning</span><span>Cost-Sensitive</span><span>Feature Engineering</span>
+      </div>
+      <div class="skillcard__meta">“core ML books” studied • daily practice in research</div>
+    </article>
+
+    <!-- ========== LLMs & NLP ========== -->
+    <article class="skillcard">
+      <div class="skillcard__glow"></div>
+      <div class="skillcard__head"><i class="uil uil-comment-alt-lines skillcard__icon"></i><h3 class="skillcard__title">LLMs & NLP</h3></div>
+      <p class="skillcard__desc">Designing prompts, tools, and evaluation for language systems</p>
+      <div class="skillcard__chips">
+        <span>Transformers</span><span>Tokenization</span><span>Prompt Engineering</span>
+        <span>Function Calling</span><span>RAG Pipelines</span><span>Retrieval</span>
+        <span>Eval & Benchmarks</span><span>Safety/Guardrails</span><span>Knowledge Graphs (Neo4j)</span>
+      </div>
+      <div class="skillcard__meta">NLP coursework • LLM-to-DSL research (RAISE 2025)</div>
+    </article>
+
+    <!-- ========== Online Learning & Drift ========== -->
+    <article class="skillcard">
+      <div class="skillcard__glow"></div>
+      <div class="skillcard__head"><i class="uil uil-signal-alt-3 skillcard__icon"></i><h3 class="skillcard__title">Online Learning & Drift</h3></div>
+      <p class="skillcard__desc">Streaming adaptation under feature/concept shifts</p>
+      <div class="skillcard__chips">
+        <span>Prequential Eval</span><span>DDM</span><span>ADWIN</span><span>Drift/Shift</span>
+        <span>Dynamic Features</span><span>River / SMF</span><span>Latency/Efficiency</span>
+      </div>
+      <div class="skillcard__meta">Master’s thesis: doubly-evolving streams & imbalance</div>
+    </article>
+
+    <!-- ========== AI Security (Cybersecurity for AI) ========== -->
+    <article class="skillcard">
+      <div class="skillcard__glow"></div>
+      <div class="skillcard__head"><i class="uil uil-shield-check skillcard__icon"></i><h3 class="skillcard__title">AI Security</h3></div>
+      <p class="skillcard__desc">Threat modeling & defenses for ML/LLM systems</p>
+      <div class="skillcard__chips">
+        <span>Adversarial ML</span><span>Prompt Injection</span><span>Data Poisoning</span>
+        <span>Model Stealing</span><span>Membership Inference</span><span>Secure Retrieval</span>
+        <span>PII Redaction</span><span>Hardening & Monitoring</span>
+      </div>
+      <div class="skillcard__meta">Course: AI in Cybersecurity • applied to RAG & endpoints</div>
+    </article>
+
+    <!-- ========== AI Ethics, Safety & Responsible AI ========== -->
+    <article class="skillcard">
+      <div class="skillcard__glow"></div>
+      <div class="skillcard__head"><i class="uil uil-user skillcard__icon"></i><h3 class="skillcard__title">AI Ethics & Responsible AI</h3></div>
+      <p class="skillcard__desc">Building systems that are fair, transparent, and accountable</p>
+      <div class="skillcard__chips">
+        <span>Bias & Fairness</span><span>Explainability (SHAP/LIME)</span><span>Safety Policies</span>
+        <span>Human-in-the-Loop</span><span>Privacy</span><span>Governance & Risk</span>
+      </div>
+      <div class="skillcard__meta">Coursework: ethics & fairness • guardrails in practice</div>
+    </article>
+
+    <!-- ========== Frameworks & Training ========== -->
+    <article class="skillcard">
+      <div class="skillcard__glow"></div>
+      <div class="skillcard__head"><i class="uil uil-cube skillcard__icon"></i><h3 class="skillcard__title">Frameworks & Training</h3></div>
+      <p class="skillcard__desc">End-to-end modeling in Python</p>
+      <div class="skillcard__chips">
+        <span>PyTorch</span><span>TensorFlow/Keras</span><span>scikit-learn</span>
+        <span>Mixed Precision</span><span>Distributed Basics (FSDP)</span><span>Experiment Tracking</span>
+      </div>
+      <div class="skillcard__meta">Daily stack for research & projects</div>
+    </article>
+
+    <!-- ========== MLOps & Cloud ========== -->
+    <article class="skillcard">
+      <div class="skillcard__glow"></div>
+      <div class="skillcard__head"><i class="uil uil-cloud-computing skillcard__icon"></i><h3 class="skillcard__title">MLOps & Cloud</h3></div>
+      <p class="skillcard__desc">Reliable shipping of models & services</p>
+      <div class="skillcard__chips">
+        <span>CI/CD</span><span>Docker</span><span>Jenkins</span><span>OpenShift</span>
+        <span>Monitoring</span><span>GCP</span><span>Azure</span>
+      </div>
+      <div class="skillcard__meta">SRE @ Motorola • Azure/GCP deployments</div>
+    </article>
+
+    <!-- ========== Back End & Data ========== -->
+    <article class="skillcard">
+      <div class="skillcard__glow"></div>
+      <div class="skillcard__head"><i class="uil uil-server-network skillcard__icon"></i><h3 class="skillcard__title">APIs & Data</h3></div>
+      <p class="skillcard__desc">Model endpoints, data services, and storage</p>
+      <div class="skillcard__chips">
+        <span>FastAPI</span><span>Flask</span><span>Node/Express</span>
+        <span>Neo4j</span><span>MySQL</span><span>SQLite</span><span>Cypher</span>
+      </div>
+      <div class="skillcard__meta">RAG over graphs • bots & automations</div>
+    </article>
+
+    <!-- ========== Front End & Tooling ========== -->
+    <article class="skillcard">
+      <div class="skillcard__glow"></div>
+      <div class="skillcard__head"><i class="uil uil-swatchbook skillcard__icon"></i><h3 class="skillcard__title">Front End & QA</h3></div>
+      <p class="skillcard__desc">UI & test automation</p>
+      <div class="skillcard__chips">
+        <span>React</span><span>TypeScript</span><span>HTML/CSS</span>
+        <span>Selenium</span><span>UFT/QTP</span><span>LoadRunner</span><span>Git • Linux • JIRA</span>
+      </div>
+      <div class="skillcard__meta">–40% manual testing at Innovapost</div>
+    </article>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+    <section class="portfolio section" id="projects">
+        <h2 class="section__title">Projects</h2>
+        <span class="section__subtitle">Selected work & contributions</span>
+
+        <div class="portfolio__container container swiper-container">
+            <div class="swiper-wrapper">
+
+            <div class="portfolio__content grid swiper-slide">
+                <img src="./assets/img/ottawa-sentiment.png" alt="Ottawa tourism sentiment" class="portfolio__img">
+                <div class="portfolio__data">
+                <h3 class="portfolio__title">Tourism Sentiment Analysis (6.5M Reddit comments)</h3>
+                <p class="portfolio__description">
+                    RoBERTa, XLNet & VADER over r/Ottawa; custom score-weighted sentiment, 87% weighted accuracy; bias analysis and strategy insights.
+                </p>
+                <a href="https://github.com/mouni001?tab=repositories" class="button button--flex button--small portfolio__button" target="_blank">
+                    View
+                    <i class="uil uil-arrow-right button__icon"></i>
+                </a>
+                </div>
+            </div>
+
+            <div class="portfolio__content grid swiper-slide">
+                <img src="./assets/img/rag-neo4j.png" alt="RAG over Neo4j" class="portfolio__img">
+                <div class="portfolio__data">
+                <h3 class="portfolio__title">AI-Powered Data Extraction & Query Tool</h3>
+                <p class="portfolio__description">
+                    RAG over Neo4j graph (User/Message/Channel); prompt templates for Mistral LLM to answer NL queries from retrieved subgraphs.
+                </p>
+                <a href="https://github.com/mouni001?tab=repositories" class="button button--flex button--small portfolio__button" target="_blank">
+                    View
+                    <i class="uil uil-arrow-right button__icon"></i>
+                </a>
+                </div>
+            </div>
+
+            <!-- <div class="portfolio__content grid swiper-slide">
+                <img src="./assets/img/projects/google-docs-bot.png" alt="Google Docs bot" class="portfolio__img">
+                <div class="portfolio__data">
+                <h3 class="portfolio__title">Google Docs Chat Bot (SRE)</h3>
+                <p class="portfolio__description">
+                    TypeScript services modifying Docs via Google Docs API; Cosmos DB metadata; Azure pipelines with rollbacks & approvals.
+                </p>
+                <a href="https://github.com/mouni001?tab=repositories" class="button button--flex button--small portfolio__button" target="_blank">
+                    View
+                    <i class="uil uil-arrow-right button__icon"></i>
+                </a>
+                </div>
+            </div> -->
+
+            <div class="portfolio__content grid swiper-slide">
+                <img src="./assets/img/ai-companion.png" alt="AI Companion" class="portfolio__img">
+                <div class="portfolio__data">
+                <h3 class="portfolio__title">AI Companion</h3>
+                <p class="portfolio__description">
+                    Conversational assistant experiments with persona scaffolding and retrieval; prompt library for coaching/Q&A.
+                </p>
+                <a href="https://github.com/mouni001?tab=repositories" class="button button--flex button--small portfolio__button" target="_blank">
+                    View
+                    <i class="uil uil-arrow-right button__icon"></i>
+                </a>
+                </div>
+            </div>
+
+            <div class="portfolio__content grid swiper-slide">
+                <img src="./assets/img/insulin-app.png" alt="Insulin app" class="portfolio__img">
+                <div class="portfolio__data">
+                <h3 class="portfolio__title">Insulin Tracking App</h3>
+                <p class="portfolio__description">
+                    Android app in Java with local SQLite + MySQL; simple UX for logging insulin doses and tracking history offline.
+                </p>
+                <a href="https://github.com/mouni001/Insuline-management" class="button button--flex button--small portfolio__button" target="_blank">
+                    View
+                    <i class="uil uil-arrow-right button__icon"></i>
+                </a>
+                </div>
+            </div>
+            <div class="portfolio__content grid swiper-slide">
+            <img src="./assets/img/pong.png" alt="Pong game preview" class="portfolio__img">
+
+            <div class="portfolio__data">
+                <h3 class="portfolio__title">Pong (Classic Arcade)</h3>
+                <p class="portfolio__description">
+                Minimal, fast Pong remake with smooth paddle control and increasing ball speed. Built for the web.
+                </p>
+
+                <!-- Optional GitHub Stars (works if your main.js reads .github-stars[data-repo]) -->
+                <div class="github-stars" data-repo="mouni001/pong">
+                <i class="uil uil-star"></i>
+                <p class="stars-count">Loading...</p>
+                <br>
+                </div>
+
+                <!-- Live demo (GitHub Pages). Change if your slug/URL differs -->
+                <a href="https://mouni001.github.io/pong" class="button button--flex button--small portfolio__button" target="_blank">
+                Play
+                <i class="uil uil-play button__icon"></i>
+                </a>
+
+                <!-- Repo link -->
+                <a href="https://github.com/mouni001/Ping_Game" class="button button--flex button--small portfolio__button" target="_blank" style="margin-left:.5rem">
+                View Repo
+                <i class="uil uil-arrow-right button__icon"></i>
+                </a>
+            </div>
+        </div>
+
+
+            </div>
+
+            <div class="swiper-button-next">
+            <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+            </div>
+            <div class="swiper-button-prev">
+            <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+            </div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    
+    <!-- RESEARCH -->
+    <section class="testimonial section" id="research">
+        <h2 class="section__title">Research</h2>
+        <span class="section__subtitle">Publications & in-progress work</span>
+
+        <div class="testimonial__container container swiper-container">
+            <div class="swiper-wrapper">
+            <!-- Paper -->
+            <div class="testimonial__content swiper-slide">
+                <div class="testimonial__data">
+                <div class="testimonial__header">
+                    <div>
+                    <h3 class="testimonial__name">Towards the LLM-Based Generation of Formal Specifications from Natural-Language Contracts</h3>
+                    <span class="testimonial__client">
+                        Venue: RAISE 2025 (Requirements Engineering for AI-powered Software) — Published<br>
+                        Google Scholar Link: <a href="https://ieeexplore.ieee.org/abstract/document/11050480" target="_blank">arXiv:2411.15898</a><br>
+                        Authors: Mounira Zitouni et al.
+                    </span>
+                    </div>
+                </div>
+                </div>
+                <p class="testimonial__description">
+                Method to translate legal contracts into machine-readable Symboleo specs using optimized GPT-4o prompts; achieved ~70% faster creation than manual authoring.
+                </p>
+            </div>
+
+            <!-- Thesis -->
+            <div class="testimonial__content swiper-slide">
+                <div class="testimonial__data">
+                <div class="testimonial__header">
+                    <div>
+                    <h3 class="testimonial__name">Online Learning from Doubly Evolving Streams Susceptible to Class Imbalance</h3>
+                    <span class="testimonial__client">
+                        Status: Master’s Thesis (in progress), University of Ottawa<br>
+                        Focus: feature evolution, concept drift (incl. imbalance drift), adaptive classifiers & metrics.
+                    </span>
+                    </div>
+                </div>
+                </div>
+                <p class="testimonial__description">
+                Framework combining latent feature mapping, drift detectors (DDM/ADWIN) and imbalance-aware learners; evaluated with prequential F1, G-mean, AUC-PR and adaptation time.
+                </p>
+            </div>
+            </div>
+
+            <div class="swiper-pagination swiper-pagination-testimonial"></div>
+        </div>
     </section>
     <!-- JOURNEY -->
 <!-- JOURNEY (with tabs) -->
@@ -264,10 +568,6 @@
           <p class="timeline__desc">Research on online learning under drift & class imbalance under graduate Director; PyTorch / TensorFlow / River.</p>
         </div>
       </article>
-
-      
-
-      
     </div>
 
     <!-- Professional -->
@@ -294,13 +594,18 @@
 
       <!-- 2025D -->
       <article class="timeline__item timeline__item--alt">
-        <span class="timeline__dot"><i class="uil uil-network-wired"></i></span>
+        <span class="timeline__dot"><i class="uil uil-brain"></i></span>
         <div class="timeline__content">
-          <span class="timeline__date">2025</span>
-          <h3 class="timeline__title">RAG over Neo4j • 6.5M-comment NLP</h3>
-          <p class="timeline__desc">Built graph-RAG system (Mistral + Neo4j) and large-scale sentiment analysis with weighted scoring.</p>
+          <span class="timeline__date">2025 – Present</span>
+          <h3 class="timeline__title">Machine Learning Researcher — University of Ottawa</h3>
+          <p class="timeline__desc">
+            Co-authored peer-reviewed research on LLM-based contract formalization (RAISE 2025). 
+            Developed adaptive ML systems handling <strong>concept drift, class imbalance, and evolving features</strong>. 
+            Built large-scale NLP pipelines (6.5M+ comments) and retrieval-augmented generation (RAG) applications.
+          </p>
         </div>
       </article>
+
     </div>
 
   </div>
@@ -404,316 +709,7 @@
     </div>
   </div>
 </section>
-<section class="section" id="leadership">
-    <h2 class="section__title">Leadership & Volunteering</h2>
-    <span class="section__subtitle">IEEE Women in Engineering</span>
-
-    <div class="container">
-      <article class="leadership__card">
-        <img src="./assets/img/wie-logo.png" alt="IEEE Women in Engineering" class="leadership__logo" />
-        <div class="leadership__body">
-          <h3 class="leadership__title">Treasurer</h3>
-          <p class="leadership__meta"><strong>IEEE Women in Engineering (uOttawa)</strong> · May 2025 – Present</p>
-
-          <ul class="leadership__list">
-            <li>Manage ~$X budget; track expenses, reimbursements, and monthly reports.</li>
-            <li>Co-organized <strong>N</strong> events (tech talks, mentorship, outreach); avg. <strong>M</strong> attendees.</li>
-            <li>Secured <strong>$Y</strong> in sponsorships; standardized event budgeting template.</li>
-          </ul>
-
-          <div class="leadership__tags">
-            <span class="tag">Budgeting</span>
-            <span class="tag">Sponsorships</span>
-            <span class="tag">Operations</span>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-    <!-- SKILLS (left as-is, tweak labels only if you want) -->
-    <section class="skills section" id="skills">
-      <h2 class="section__title">Skills</h2>
-      <span class="section__subtitle">My technical & other skills</span>
-
-      <div class="skills__container container grid">
-        <div>
-          <div class="skills__content skills__open">
-            <div class="skills__header">
-              <i class="uil uil-brain skills__icon"></i>
-              <div>
-                <h1 class="skills__title">Data Science & AI</h1>
-                <!-- <span class="skills__subtitle">3+ Years XP</span> -->
-              </div>
-              <i class="uil uil-angle-down skills__arrow"></i>
-            </div>
-
-            <div class="skills__list grid">
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Large Language Models (LLMs)</h3>
-                  <span class="skills__number">90%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__nlp"></span></div>
-              </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">NLP & RAG</h3>
-                  <span class="skills__number">85%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__dav"></span></div>
-              </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Online Learning & Drift</h3>
-                  <span class="skills__number">85%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__ps"></span></div>
-              </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Frameworks (PyTorch, TensorFlow)</h3>
-                  <span class="skills__number">85%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__frameworks"></span></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="skills__content skills__close">
-            <div class="skills__header">
-              <i class="uil uil-brackets-curly skills__icon"></i>
-              <div>
-                <h1 class="skills__title">Programming</h1>
-                <!-- <span class="skills__subtitle">3+ Years XP</span> -->
-              </div>
-              <i class="uil uil-angle-down skills__arrow"></i>
-            </div>
-
-            <div class="skills__list grid">
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Python</h3>
-                  <span class="skills__number">95%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__python"></span></div>
-              </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">SQL</h3>
-                  <span class="skills__number">85%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__sql"></span></div>
-              </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">JavaScript / TypeScript</h3>
-                  <span class="skills__number">75%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__js"></span></div>
-              </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Java</h3>
-                  <span class="skills__number">70%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__java"></span></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="skills__content skills__close">
-            <div class="skills__header">
-              <i class="uil uil-cloud-computing skills__icon"></i>
-              <div>
-                <h1 class="skills__title">Computing</h1>
-                <!-- <span class="skills__subtitle">3+ Years XP</span> -->
-              </div>
-              <i class="uil uil-angle-down skills__arrow"></i>
-            </div>
-
-            <div class="skills__list grid">
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">GPU / Distributed</h3>
-                  <span class="skills__number">80%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__gpu"></span></div>
-              </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">GCP / Azure</h3>
-                  <span class="skills__number">80%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__gcp"></span></div>
-              </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">CI/CD & DevOps</h3>
-                  <span class="skills__number">80%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__aws"></span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div class="skills__content skills__close">
-            <div class="skills__header">
-              <i class="uil uil-swatchbook skills__icon"></i>
-              <div>
-                <h1 class="skills__title">Front End</h1>
-                <!-- <span class="skills__subtitle">2+ Years XP</span> -->
-              </div>
-              <i class="uil uil-angle-down skills__arrow"></i>
-            </div>
-
-            <div class="skills__list grid">
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">HTML/CSS</h3>
-                  <span class="skills__number">85%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__html"></span></div>
-              </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">React</h3>
-                  <span class="skills__number">80%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__react"></span></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="skills__content skills__close">
-            <div class="skills__header">
-              <i class="uil uil-server-network skills__icon"></i>
-              <div>
-                <h1 class="skills__title">Back End</h1>
-                <!-- <span class="skills__subtitle">3+ Years XP</span> -->
-              </div>
-              <i class="uil uil-angle-down skills__arrow"></i>
-            </div>
-
-            <div class="skills__list grid">
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Python — Flask / FastAPI</h3>
-                  <span class="skills__number">90%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__pythons"></span></div>
-              </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Node.js / Express</h3>
-                  <span class="skills__number">70%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__node"></span></div>
-              </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Databases (Neo4j, MySQL)</h3>
-                  <span class="skills__number">75%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__firebase"></span></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="skills__content skills__close">
-            <div class="skills__header">
-              <i class="uil uil-analysis skills__icon"></i>
-              <div>
-                <h1 class="skills__title">Misc</h1>
-                <!-- <span class="skills__subtitle">4+ Years XP</span> -->
-              </div>
-              <i class="uil uil-angle-down skills__arrow"></i>
-            </div>
-
-            <div class="skills__list grid">
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Git</h3>
-                  <span class="skills__number">90%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__git"></span></div>
-              </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Linux</h3>
-                  <span class="skills__number">85%</span>
-                </div>
-                <div class="skills__bar"><span class="skills__percentage skills__linux"></span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESEARCH -->
-    <section class="testimonial section" id="research">
-        <h2 class="section__title">Research</h2>
-        <span class="section__subtitle">Publications & in-progress work</span>
-
-        <div class="testimonial__container container swiper-container">
-            <div class="swiper-wrapper">
-            <!-- Paper -->
-            <div class="testimonial__content swiper-slide">
-                <div class="testimonial__data">
-                <div class="testimonial__header">
-                    <div>
-                    <h3 class="testimonial__name">Towards the LLM-Based Generation of Formal Specifications from Natural-Language Contracts</h3>
-                    <span class="testimonial__client">
-                        Venue: RAISE 2025 (Requirements Engineering for AI-powered Software) — Published<br>
-                        Google Scholar Link: <a href="https://ieeexplore.ieee.org/abstract/document/11050480" target="_blank">arXiv:2411.15898</a><br>
-                        Authors: Mounira Zitouni et al.
-                    </span>
-                    </div>
-                </div>
-                </div>
-                <p class="testimonial__description">
-                Method to translate legal contracts into machine-readable Symboleo specs using optimized GPT-4o prompts; achieved ~70% faster creation than manual authoring.
-                </p>
-            </div>
-
-            <!-- Thesis -->
-            <div class="testimonial__content swiper-slide">
-                <div class="testimonial__data">
-                <div class="testimonial__header">
-                    <div>
-                    <h3 class="testimonial__name">Online Learning from Doubly Evolving Streams Susceptible to Class Imbalance</h3>
-                    <span class="testimonial__client">
-                        Status: Master’s Thesis (in progress), University of Ottawa<br>
-                        Focus: feature evolution, concept drift (incl. imbalance drift), adaptive classifiers & metrics.
-                    </span>
-                    </div>
-                </div>
-                </div>
-                <p class="testimonial__description">
-                Framework combining latent feature mapping, drift detectors (DDM/ADWIN) and imbalance-aware learners; evaluated with prequential F1, G-mean, AUC-PR and adaptation time.
-                </p>
-            </div>
-            </div>
-
-            <div class="swiper-pagination swiper-pagination-testimonial"></div>
-        </div>
-    </section>
-    <!-- TALKS -->
+ <!-- TALKS -->
 <section class="portfolio section" id="talks">
   <h2 class="section__title">Talks & Presentations</h2>
   <span class="section__subtitle">Sharing research & practice</span>
@@ -756,129 +752,33 @@
     <div class="swiper-pagination"></div>
   </div>
 </section>
+<section class="section" id="leadership">
+    <h2 class="section__title">Leadership & Volunteering</h2>
+    <span class="section__subtitle">IEEE Women in Engineering</span>
 
+    <div class="container">
+      <article class="leadership__card">
+        <img src="./assets/img/wie-logo.png" alt="IEEE Women in Engineering" class="leadership__logo" />
+        <div class="leadership__body">
+          <h3 class="leadership__title">Treasurer</h3>
+          <p class="leadership__meta"><strong>IEEE Women in Engineering (uOttawa)</strong></p>
 
+          <ul class="leadership__list">
+            <li>Manage ~$X budget; track expenses, reimbursements, and monthly reports.</li>
+            <li>Co-organized <strong>N</strong> events (tech talks, mentorship, outreach); avg. <strong>M</strong> attendees.</li>
+            <li>Secured <strong>$Y</strong> in sponsorships; standardized event budgeting template.</li>
+          </ul>
 
-    <!-- PROJECTS -->
-    <section class="portfolio section" id="projects">
-        <h2 class="section__title">Projects</h2>
-        <span class="section__subtitle">Selected work & contributions</span>
-
-        <div class="portfolio__container container swiper-container">
-            <div class="swiper-wrapper">
-
-            <div class="portfolio__content grid swiper-slide">
-                <img src="./assets/img/ottawa-sentiment.png" alt="Ottawa tourism sentiment" class="portfolio__img">
-                <div class="portfolio__data">
-                <h3 class="portfolio__title">Tourism Sentiment Analysis (6.5M Reddit comments)</h3>
-                <p class="portfolio__description">
-                    RoBERTa, XLNet & VADER over r/Ottawa; custom score-weighted sentiment, 87% weighted accuracy; bias analysis and strategy insights.
-                </p>
-                <a href="https://github.com/mouni001?tab=repositories" class="button button--flex button--small portfolio__button" target="_blank">
-                    View
-                    <i class="uil uil-arrow-right button__icon"></i>
-                </a>
-                </div>
-            </div>
-
-            <div class="portfolio__content grid swiper-slide">
-                <img src="./assets/img/rag-neo4j.png" alt="RAG over Neo4j" class="portfolio__img">
-                <div class="portfolio__data">
-                <h3 class="portfolio__title">AI-Powered Data Extraction & Query Tool</h3>
-                <p class="portfolio__description">
-                    RAG over Neo4j graph (User/Message/Channel); prompt templates for Mistral LLM to answer NL queries from retrieved subgraphs.
-                </p>
-                <a href="https://github.com/mouni001?tab=repositories" class="button button--flex button--small portfolio__button" target="_blank">
-                    View
-                    <i class="uil uil-arrow-right button__icon"></i>
-                </a>
-                </div>
-            </div>
-
-            <!-- <div class="portfolio__content grid swiper-slide">
-                <img src="./assets/img/projects/google-docs-bot.png" alt="Google Docs bot" class="portfolio__img">
-                <div class="portfolio__data">
-                <h3 class="portfolio__title">Google Docs Chat Bot (SRE)</h3>
-                <p class="portfolio__description">
-                    TypeScript services modifying Docs via Google Docs API; Cosmos DB metadata; Azure pipelines with rollbacks & approvals.
-                </p>
-                <a href="https://github.com/mouni001?tab=repositories" class="button button--flex button--small portfolio__button" target="_blank">
-                    View
-                    <i class="uil uil-arrow-right button__icon"></i>
-                </a>
-                </div>
-            </div> -->
-
-            <div class="portfolio__content grid swiper-slide">
-                <img src="./assets/img/ai-companion.png" alt="AI Companion" class="portfolio__img">
-                <div class="portfolio__data">
-                <h3 class="portfolio__title">AI Companion</h3>
-                <p class="portfolio__description">
-                    Conversational assistant experiments with persona scaffolding and retrieval; prompt library for coaching/Q&A.
-                </p>
-                <a href="https://github.com/mouni001?tab=repositories" class="button button--flex button--small portfolio__button" target="_blank">
-                    View
-                    <i class="uil uil-arrow-right button__icon"></i>
-                </a>
-                </div>
-            </div>
-
-            <div class="portfolio__content grid swiper-slide">
-                <img src="./assets/img/insulin-app.png" alt="Insulin app" class="portfolio__img">
-                <div class="portfolio__data">
-                <h3 class="portfolio__title">Insulin Tracking App</h3>
-                <p class="portfolio__description">
-                    Android app in Java with local SQLite + MySQL; simple UX for logging insulin doses and tracking history offline.
-                </p>
-                <a href="https://github.com/mouni001?tab=repositories" class="button button--flex button--small portfolio__button" target="_blank">
-                    View
-                    <i class="uil uil-arrow-right button__icon"></i>
-                </a>
-                </div>
-            </div>
-            <div class="portfolio__content grid swiper-slide">
-            <img src="./assets/img/pong.png" alt="Pong game preview" class="portfolio__img">
-
-            <div class="portfolio__data">
-                <h3 class="portfolio__title">Pong (Classic Arcade)</h3>
-                <p class="portfolio__description">
-                Minimal, fast Pong remake with smooth paddle control and increasing ball speed. Built for the web.
-                </p>
-
-                <!-- Optional GitHub Stars (works if your main.js reads .github-stars[data-repo]) -->
-                <div class="github-stars" data-repo="mouni001/pong">
-                <i class="uil uil-star"></i>
-                <p class="stars-count">Loading...</p>
-                <br>
-                </div>
-
-                <!-- Live demo (GitHub Pages). Change if your slug/URL differs -->
-                <a href="https://mouni001.github.io/pong" class="button button--flex button--small portfolio__button" target="_blank">
-                Play
-                <i class="uil uil-play button__icon"></i>
-                </a>
-
-                <!-- Repo link -->
-                <a href="https://github.com/mouni001/pong" class="button button--flex button--small portfolio__button" target="_blank" style="margin-left:.5rem">
-                View Repo
-                <i class="uil uil-arrow-right button__icon"></i>
-                </a>
-            </div>
+          <div class="leadership__tags">
+            <span class="tag">Budgeting</span>
+            <span class="tag">Sponsorships</span>
+            <span class="tag">Operations</span>
+          </div>
         </div>
-
-
-            </div>
-
-            <div class="swiper-button-next">
-            <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
-            </div>
-            <div class="swiper-button-prev">
-            <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
-            </div>
-
-            <div class="swiper-pagination"></div>
-        </div>
-    </section>
+      </article>
+    </div>
+  </section>
+   
     <!-- TESTIMONIALS -->
 <section class="testimonial section" id="testimonials">
   <h2 class="section__title">Testimonials</h2>
@@ -905,48 +805,58 @@
         </p>
       </div>
 
-      <!-- Add more testimonials as slides later -->
+      <!-- Wassim El Ahmar -->
+      <div class="testimonial__content swiper-slide">
+        <div class="testimonial__data">
+          <div class="testimonial__header">
+            <img src="./assets/img/wassim-el-ahmar.jpg" alt="Wassim El Ahmar" class="testimonial__img">
+            <div>
+              <h3 class="testimonial__name">Wassim El Ahmar, Ph.D., P.Eng.</h3>
+              <span class="testimonial__client">Machine Learning Scientist, Computer Vision Expert, Software Management</span>
+            </div>
+          </div>
+        </div>
+        <p class="testimonial__description">
+          “Students are telling me excellent things about your tutorials and labs. Congratulations on that.
+          I very rarely get such positive feedback from TAs.”
+        </p>
+      </div>
+
     </div>
 
+    <!-- Pagination -->
     <div class="swiper-pagination swiper-pagination-testimonial"></div>
   </div>
 </section>
 
 
+
     <!-- CONTACT -->
     <section class="contact section" id="contact">
       <h2 class="section__title">Contact</h2>
-      <span class="section__subtitle">Get in touch with me</span>
+      <span class="section__subtitle">Let’s Connect ✨</span>
 
-      <div class="contact__container container grid">
-        <div>
-          <div class="contact__information">
-            <i class="uil uil-envelope contact__icon"></i>
-            <div>
-              <h3 class="contact__title">Email</h3>
-              <span class="contact__subtitle">mounira.zitouni@outlook.com</span>
-            </div>
-          </div>
-
-          <div class="contact__information">
-            <i class="uil uil-map-marker contact__icon"></i>
-            <div>
-              <h3 class="contact__title">Location</h3>
-              <span class="contact__subtitle">Ottawa, Canada</span>
-            </div>
-          </div>
-
-          <div class="contact__information">
-            <i class="uil uil-github contact__icon"></i>
-            <div>
-              <h3 class="contact__title">GitHub</h3>
-              <span class="contact__subtitle"><a href="https://github.com/mouni001" target="_blank">github.com/mouni001</a></span>
-            </div>
-          </div>
+      <div class="contact__container container">
+        <div class="contact__card">
+          <i class="uil uil-envelope contact__card-icon"></i>
+          <h3>Email</h3>
+          <a href="mailto:mounira.zitouni@outlook.com" target="_blank">mounira.zitouni@outlook.com</a>
         </div>
 
+        <div class="contact__card">
+          <i class="uil uil-map-marker contact__card-icon"></i>
+          <h3>Location</h3>
+          <p>Ottawa, Canada</p>
+        </div>
+
+        <div class="contact__card">
+          <i class="uil uil-github contact__card-icon"></i>
+          <h3>GitHub</h3>
+          <a href="https://github.com/mouni001" target="_blank">github.com/mouni001</a>
+        </div>
       </div>
     </section>
+
   </main>
 
   <!-- FOOTER -->
@@ -968,7 +878,7 @@
           <a href="https://github.com/mouni001" target="_blank" class="footer__social">
             <i class="uil uil-github-alt"></i>
           </a>
-          <a href="https://www.linkedin.com/in/mounira-zitouni/" target="_blank" class="footer__social">
+          <a href="https://www.linkedin.com/in/mounira-nihad-zitouni/" target="_blank" class="footer__social">
             <i class="uil uil-linkedin-alt"></i>
           </a>
           <a href="mailto:mounira.zitouni@outlook.com" target="_blank" class="footer__social">
