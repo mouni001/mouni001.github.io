@@ -49,25 +49,73 @@ skillsHeader.forEach((el) => {
     el.addEventListener('click', toggleSkills)
 })
 
-/*==================== QUALIFICATION TABS ====================*/
-const tabs = document.querySelectorAll('[data-target]'),
-tabContents = document.querySelectorAll('[data-content]')
+/*==================== QUALIFICATION & JOURNEY TABS (scoped) ====================*/
+function observeTimeline(scope = document) {
+  const items = scope.querySelectorAll('.timeline__item:not(.is-visible)');
+  if (!items.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  items.forEach((it) => io.observe(it));
+}
 
-tabs.forEach(tab => {
+// 1) Qualification (Experience) container — same behavior as before, but scoped
+document.querySelectorAll('.qualification__container').forEach((container) => {
+  const tabs = container.querySelectorAll('[data-target]');
+  const contents = container.querySelectorAll('[data-content]');
+
+  tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-        const target = document.querySelector(tab.dataset.target)
-        
-        tabContents.forEach(tabContent => {
-            tabContent.classList.remove('qualification__active')
-        })
-        target.classList.add('qualification__active')
-        
-        tabs.forEach(tab => {
-            tab.classList.remove('qualification__active')
-        })
-        tab.classList.add('qualification__active')
-    })
-})
+      const target = container.querySelector(tab.dataset.target);
+
+      tabs.forEach((t) => t.classList.remove('qualification__active'));
+      tab.classList.add('qualification__active');
+
+      contents.forEach((c) => c.classList.remove('qualification__active'));
+      target.classList.add('qualification__active');
+    });
+  });
+});
+
+// 2) Journey tabs inside #journey
+const journey = document.getElementById('journey');
+if (journey) {
+  const jTabs = journey.querySelectorAll('.qualification__button[data-target]');
+  const jContents = journey.querySelectorAll('.journey__content[data-content]');
+
+  jTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = journey.querySelector(tab.dataset.target);
+
+      // active tab state
+      jTabs.forEach((t) => t.classList.remove('qualification__active'));
+      tab.classList.add('qualification__active');
+
+      // toggle which panel is visible
+      jContents.forEach((c) => c.classList.remove('journey__active'));
+      target.classList.add('journey__active');
+
+      // ensure inline display isn't blocking visibility
+      target.style.display = '';
+
+      // re-observe timeline items in the newly shown panel so they animate from the sides
+      observeTimeline(target);
+    });
+  });
+
+  // initial observe for the default visible panel
+  observeTimeline(journey.querySelector('.journey__content.journey__active') || journey);
+}
+
+// Also run once on page load for any timelines visible initially
+document.addEventListener('DOMContentLoaded', () => observeTimeline(document));
+
+
 
 /*==================== SERVICES MODAL ====================*/
 const modalViews = document.querySelectorAll('.services__modal'),
@@ -214,3 +262,97 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+/* Journey reveal on scroll */
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".timeline__item");
+  if (!items.length) {
+    console.warn("No timeline items found!");
+    return;
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        // Optional: stop observing once revealed
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  items.forEach(it => io.observe(it));
+});
+/*==================== COUNT-UP (animated counters) ====================*/
+(function setupCountUp() {
+  const counters = document.querySelectorAll('[data-counter]');
+  if (!counters.length) return;
+
+  // Accessibility: if user prefers reduced motion, set values immediately
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    counters.forEach(setFinalValue);
+    return;
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      // make sure each counter runs once
+      if (el.dataset.counted === 'true') { io.unobserve(el); return; }
+      el.dataset.counted = 'true';
+      animateCount(el);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.35 });
+
+  counters.forEach((el) => io.observe(el));
+
+  function setFinalValue(el) {
+    const target = parseFloat(el.getAttribute('data-target') || '0');
+    const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    const prefix = el.getAttribute('data-prefix') || '';
+    const suffix = el.getAttribute('data-suffix') || '';
+    el.textContent = prefix + formatNumber(target, decimals) + suffix;
+  }
+
+  function animateCount(el) {
+    el.style.transform = 'scale(1.03)';
+    const target = parseFloat(el.getAttribute('data-target') || '0');
+    const duration = parseInt(el.getAttribute('data-duration') || '1200', 10); // ms
+    const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    const prefix = el.getAttribute('data-prefix') || '';
+    const suffix = el.getAttribute('data-suffix') || '';
+    const start = performance.now();
+    const startVal = 0;
+    const endVal = target;
+    el.style.transform = '';
+
+    function tick(now) {
+    el.style.transform = 'scale(1.03)';
+      const progress = Math.min((now - start) / duration, 1);
+      // easeOutCubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = startVal + (endVal - startVal) * eased;
+      el.textContent = prefix + formatNumber(current, decimals) + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        // snap to final (avoids rounding drift)
+        el.textContent = prefix + formatNumber(endVal, decimals) + suffix;
+      }
+    }
+    
+    requestAnimationFrame(tick);
+    el.style.transform = '';
+  }
+
+  function formatNumber(num, decimals) {
+    const fixed = Number(num).toFixed(decimals);
+    // add thousands separators without affecting decimals
+    const parts = fixed.split('.');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return parts.join('.');
+  }
+})();
+
+

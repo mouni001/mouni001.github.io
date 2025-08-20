@@ -169,21 +169,20 @@
 
 
           <div class="about__info">
-                <div>
-                    <span class="about__info-title">10+</span>
-                    <span class="about__info-name">Merit Scholarships and Dean's Honour List</span>
-                </div>
-
-                <div>
-                    <span class="about__info-title">15+</span>
-                    <span class="about__info-name">Projects</span>
-                </div>
-
-                <div>
-                    <span class="about__info-title">1</span>
-                    <span class="about__info-name">Peer-reviewed Paper</span>
-                </div>
+            <div>
+              <span class="about__info-title" data-counter data-target="10" data-suffix="+">10+</span>
+              <span class="about__info-name">Merit Scholarships and Dean's Honour List</span>
             </div>
+            <div>
+              <span class="about__info-title" data-counter data-target="15" data-suffix="+">15+</span>
+              <span class="about__info-name">Projects</span>
+            </div>
+            <div>
+              <span class="about__info-title" data-counter data-target="1">1</span>
+              <span class="about__info-name">Peer-reviewed Paper</span>
+            </div>
+          </div>
+
 
 
           <div class="about__buttons">
@@ -194,99 +193,243 @@
         </div>
       </div>
     </section>
+    <!-- JOURNEY -->
+<!-- JOURNEY (with tabs) -->
+<section class="timeline section" id="journey">
+  <h2 class="section__title">Journey</h2>
+  <span class="section__subtitle">A timeline of my growth</span>
 
-    <!-- EXPERIENCE -->
-    <section class="qualification section" id="experience">
-  <h2 class="section__title">Experience</h2>
-  <span class="section__subtitle">My journey in the academic & professional front</span>
+  <div class="timeline__container container">
 
-  <div class="qualification__container container">
-    <div class="qualification__tabs">
-      <div class="qualification__button button--flex qualification__active" data-target="#education">
-        <i class="uil uil-graduation-cap qualification__icon"></i>
-        Academic
+    <!-- Tabs (reuse qualification tab styling) -->
+    <div class="qualification__tabs" style="margin-bottom:1rem">
+      <div class="qualification__button button--flex qualification__active" data-target="#journey-academic">
+        <i class="uil uil-graduation-cap qualification__icon"></i> Academic
       </div>
-
-      <div class="qualification__button button--flex" data-target="#work">
-        <i class="uil uil-briefcase-alt qualification__icon"></i>
-        Professional
-      </div>
-    </div>
-
-    <div class="qualification__sections">
-      <!-- Academic -->
-      <div class="qualification__content qualification__active" data-content id="education">
-        <div class="qualification__data">
-          <div>
-            <h3 class="qualification__title">Master of Computer Science — Applied AI</h3>
-            <span class="qualification__subtitle">University of Ottawa, Canada</span>
-            <div class="qualification__calendar">
-              <i class="uil uil-calendar-alt"></i>
-              Jan 2025 – Present
-            </div>
-          </div>
-          <div><span class="qualification__rounder"></span><span class="qualification__line"></span></div>
-        </div>
-
-        <div class="qualification__data">
-          <div></div>
-          <div><span class="qualification__rounder"></span></div>
-          <div>
-            <h3 class="qualification__title">BASc — Software Engineering (Summa Cum Laude)</h3>
-            <span class="qualification__subtitle">University of Ottawa, Canada — GPA 3.85/4.0</span>
-            <div class="qualification__calendar">
-              <i class="uil uil-calendar-alt"></i>
-              Sept 2020 – Dec 2024
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Work -->
-      <div class="qualification__content" data-content id="work">
-        <div class="qualification__data">
-          <div>
-            <h3 class="qualification__title">Machine Learning Researcher</h3>
-            <span class="qualification__subtitle">University of Ottawa</span>
-            <div class="qualification__calendar">
-              <i class="uil uil-calendar-alt"></i>
-              Jan 2025 – Present
-            </div>
-          </div>
-          <div><span class="qualification__rounder"></span><span class="qualification__line"></span></div>
-        </div>
-
-        <div class="qualification__data">
-          <div></div>
-          <div class="qualification__time">
-            <span class="qualification__rounder"></span><span class="qualification__line"></span>
-          </div>
-          <div>
-            <h3 class="qualification__title">Site Reliability Engineer (Co-op)</h3>
-            <span class="qualification__subtitle">Motorola Canada Solutions</span>
-            <div class="qualification__calendar">
-              <i class="uil uil-calendar-alt"></i>
-              Sept 2022 – Aug 2023
-            </div>
-          </div>
-        </div>
-
-        <div class="qualification__data">
-          <div>
-            <h3 class="qualification__title">Automation Tester & Analyst</h3>
-            <span class="qualification__subtitle">Innovapost Inc.</span>
-            <div class="qualification__calendar">
-              <i class="uil uil-calendar-alt"></i>
-              Jan 2022 – May 2022
-            </div>
-          </div>
-          <div><span class="qualification__rounder"></span></div>
-        </div>
+      <div class="qualification__button button--flex" data-target="#journey-professional">
+        <i class="uil uil-briefcase-alt qualification__icon"></i> Professional
       </div>
     </div>
+
+    <!-- Vertical line -->
+    <div class="timeline__line" aria-hidden="true"></div>
+
+    <!-- Academic -->
+    <div class="timeline__panel journey__content journey__active" data-content id="journey-academic">
+      <!-- 2020 -->
+      <article class="timeline__item">
+        <span class="timeline__dot"><i class="uil uil-graduation-cap"></i></span>
+        <div class="timeline__content">
+          <span class="timeline__date">Sept 2020</span>
+          <h3 class="timeline__title">BASc in Software Engineering — uOttawa</h3>
+          <p class="timeline__desc">Merit scholarships & Dean’s Honour List; foundation in systems, algorithms, and software design.</p>
+        </div>
+      </article>
+      <!-- TA -->
+      <article class="timeline__item timeline__item--alt">
+        <span class="timeline__dot"><i class="uil uil-users-alt"></i></span>
+        <div class="timeline__content">
+          <span class="timeline__date">2022–2025</span>
+          <h3 class="timeline__title">Teaching Assistant — Bilingual (EN/FR)</h3>
+          <p class="timeline__desc">SEG 2105, SEG 2900, SEG 3102, SEG 3503/3103 — labs, grading, mentoring 350+ students.</p>
+        </div>
+      </article>
+      <!-- 2025B -->
+      <article class="timeline__item ">
+        <span class="timeline__dot"><i class="uil uil-presentation-line"></i></span>
+        <div class="timeline__content">
+          <span class="timeline__date">2025</span>
+          <h3 class="timeline__title">RAISE 2025 — Published & Presented</h3>
+          <p class="timeline__desc">LLM-based generation of Symboleo specifications; ~70% authoring speedup; conference talk + slides.</p>
+        </div>
+      </article>
+
+      <!-- 2024 -->
+      <article class="timeline__item timeline__item--alt">
+        <span class="timeline__dot"><i class="uil uil-award"></i></span>
+        <div class="timeline__content">
+          <span class="timeline__date">Dec 2024</span>
+          <h3 class="timeline__title">Graduated — Summa Cum Laude</h3>
+          <p class="timeline__desc">BASc Software Engineering completed with distinction.</p>
+        </div>
+      </article>
+
+
+      <!-- 2025A -->
+      <article class="timeline__item">
+        <span class="timeline__dot"><i class="uil uil-flask"></i></span>
+        <div class="timeline__content">
+          <span class="timeline__date">Jan 2025 – Present</span>
+          <h3 class="timeline__title">Master’s — Applied AI (uOttawa)</h3>
+          <p class="timeline__desc">Research on online learning under drift & class imbalance under graduate Director; PyTorch / TensorFlow / River.</p>
+        </div>
+      </article>
+
+      
+
+      
+    </div>
+
+    <!-- Professional -->
+    <div class="timeline__panel journey__content" data-content id="journey-professional" style="display:none">
+      <!-- 2022A -->
+      <article class="timeline__item timeline__item--alt">
+        <span class="timeline__dot"><i class="uil uil-clipboard-notes"></i></span>
+        <div class="timeline__content">
+          <span class="timeline__date">Jan–May 2022</span>
+          <h3 class="timeline__title">Automation Tester & Analyst — Innovapost</h3>
+          <p class="timeline__desc">Built end-to-end tests (UFT/Selenium), validated frontend↔backend↔DB flows; reduced form-related prod issues.</p>
+        </div>
+      </article>
+
+      <!-- 2022B -->
+      <article class="timeline__item">
+        <span class="timeline__dot"><i class="uil uil-server"></i></span>
+        <div class="timeline__content">
+          <span class="timeline__date">Sept 2022 – Aug 2023</span>
+          <h3 class="timeline__title">Site Reliability Engineer (Co-op) — Motorola Canada</h3>
+          <p class="timeline__desc">Google Docs API chatbot (TypeScript), Cosmos DB, CI/CD on Azure; rollbacks, approvals, and error monitoring.</p>
+        </div>
+      </article>
+
+      <!-- 2025D -->
+      <article class="timeline__item timeline__item--alt">
+        <span class="timeline__dot"><i class="uil uil-network-wired"></i></span>
+        <div class="timeline__content">
+          <span class="timeline__date">2025</span>
+          <h3 class="timeline__title">RAG over Neo4j • 6.5M-comment NLP</h3>
+          <p class="timeline__desc">Built graph-RAG system (Mistral + Neo4j) and large-scale sentiment analysis with weighted scoring.</p>
+        </div>
+      </article>
+    </div>
+
   </div>
 </section>
 
+<!-- TEACHING -->
+<section class="skills section" id="teaching">
+  <h2 class="section__title">Teaching & TA</h2>
+  <span class="section__subtitle">3 years • French & English • Labs • Grading • Mentoring</span>
+
+  <div class="skills__container container grid">
+    <div>
+      <!-- SEG 2105 -->
+      <div class="skills__content skills__open">
+        <div class="skills__header">
+          <i class="uil uil-presentation skills__icon"></i>
+          <div>
+            <h1 class="skills__title">SEG 2105 — Intro to Software Engineering</h1>
+            <span class="skills__subtitle">TA • 2022–2025 • Bilingual</span>
+          </div>
+          <i class="uil uil-angle-down skills__arrow"></i>
+        </div>
+        <div class="skills__list grid">
+          <ul class="skills__bullets">
+            <li>Labs on requirements, UML, testing, and client–server basics.</li>
+            <li>Mentored ~120+ students per term in English & French.</li>
+            <li>Built auto-grading rubrics, reducing regrade requests by ~35%.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SEG 2900 -->
+      <div class="skills__content skills__close">
+        <div class="skills__header">
+          <i class="uil uil-megaphone skills__icon"></i>
+          <div>
+            <h1 class="skills__title">SEG 2900 — Professional Communication & Responsibility</h1>
+            <span class="skills__subtitle">TA • 2023–2025 • Bilingual</span>
+          </div>
+          <i class="uil uil-angle-down skills__arrow"></i>
+        </div>
+        <div class="skills__list grid">
+          <ul class="skills__bullets">
+            <li>Taught technical writing: specs, reports, and professional docs.</li>
+            <li>Introduced students to Git & version control basics.</li>
+            <li>Delivered workshops and graded oral & written presentations.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SEG 3102 -->
+      <div class="skills__content skills__close">
+        <div class="skills__header">
+          <i class="uil uil-vector-square skills__icon"></i>
+          <div>
+            <h1 class="skills__title">SEG 3102 — Software Design & Architecture</h1>
+            <span class="skills__subtitle">TA • 2024–2025 • Bilingual</span>
+          </div>
+          <i class="uil uil-angle-down skills__arrow"></i>
+        </div>
+        <div class="skills__list grid">
+          <ul class="skills__bullets">
+            <li>Guided labs on software architecture patterns (MVC, layered, microservices).</li>
+            <li>Reviewed and graded design docs and architecture diagrams in French & English.</li>
+            <li>Helped students apply design principles to real projects.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <!-- SEG 3503 / 3103 -->
+      <div class="skills__content skills__close">
+        <div class="skills__header">
+          <i class="uil uil-shield-check skills__icon"></i>
+          <div>
+            <h1 class="skills__title">SEG 3503 / 3103 — Software Quality Assurance</h1>
+            <span class="skills__subtitle">TA • 2024–2025 • Bilingual</span>
+          </div>
+          <i class="uil uil-angle-down skills__arrow"></i>
+        </div>
+        <div class="skills__list grid">
+          <ul class="skills__bullets">
+            <li>Labs on inspections, test design, verification & validation.</li>
+            <li>Created defect-report templates; improved bug triage efficiency.</li>
+            <li>Mentored capstone teams on QA strategies and CI checks.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Teaching metrics -->
+      <div class="about__info" style="margin-top:1rem">
+        <div><span class="about__info-title" data-counter data-target="4">4</span><span class="about__info-name">Courses TA’d</span></div>
+        <div><span class="about__info-title" data-counter data-target="6" data-suffix="+">6+</span><span class="about__info-name">Terms</span></div>
+        <div><span class="about__info-title" data-counter data-target="350" data-suffix="+">350+</span><span class="about__info-name">Students Mentored</span></div>
+      </div>
+
+      <p class="about__description" style="font-size:.85rem;margin-top:.25rem">
+        Delivered labs, grading, and mentoring in both English and French across 4 courses.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="section" id="leadership">
+    <h2 class="section__title">Leadership & Volunteering</h2>
+    <span class="section__subtitle">IEEE Women in Engineering</span>
+
+    <div class="container">
+      <article class="leadership__card">
+        <img src="./assets/img/wie-logo.png" alt="IEEE Women in Engineering" class="leadership__logo" />
+        <div class="leadership__body">
+          <h3 class="leadership__title">Treasurer</h3>
+          <p class="leadership__meta"><strong>IEEE Women in Engineering (uOttawa)</strong> · May 2025 – Present</p>
+
+          <ul class="leadership__list">
+            <li>Manage ~$X budget; track expenses, reimbursements, and monthly reports.</li>
+            <li>Co-organized <strong>N</strong> events (tech talks, mentorship, outreach); avg. <strong>M</strong> attendees.</li>
+            <li>Secured <strong>$Y</strong> in sponsorships; standardized event budgeting template.</li>
+          </ul>
+
+          <div class="leadership__tags">
+            <span class="tag">Budgeting</span>
+            <span class="tag">Sponsorships</span>
+            <span class="tag">Operations</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 
     <!-- SKILLS (left as-is, tweak labels only if you want) -->
     <section class="skills section" id="skills">
@@ -570,6 +713,50 @@
             <div class="swiper-pagination swiper-pagination-testimonial"></div>
         </div>
     </section>
+    <!-- TALKS -->
+<section class="portfolio section" id="talks">
+  <h2 class="section__title">Talks & Presentations</h2>
+  <span class="section__subtitle">Sharing research & practice</span>
+
+  <div class="portfolio__container container swiper-container">
+    <div class="swiper-wrapper">
+
+      <!-- RAISE 2025 -->
+      <div class="portfolio__content grid swiper-slide">
+        <img src="./assets/img/raise2025-1.jpg" alt="RAISE 2025 talk photo" class="portfolio__img">
+        <div class="portfolio__data">
+          <h3 class="portfolio__title">RAISE 2025 — LLM-Based Generation of Formal Specs</h3>
+          <p class="portfolio__description">
+            Presented our method to translate NL contracts into Symboleo specifications using optimized GPT-4o prompts; ~70% authoring speedup.
+          </p>
+          <a href="https://ieeexplore.ieee.org/abstract/document/11050480" class="button button--flex button--small portfolio__button" target="_blank">
+            Paper
+            <i class="uil uil-external-link-alt button__icon"></i>
+          </a>
+          <a href="./assets/docs/raise2025-slides.pdf" class="button button--flex button--small portfolio__button" target="_blank" style="margin-left:.5rem">
+            Slides
+            <i class="uil uil-presentation button__icon"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Add more photos as slides -->
+      <!-- <div class="portfolio__content grid swiper-slide">
+        <img src="./assets/img/raise2025-2.jpg" alt="Audience Q&A" class="portfolio__img">
+        <div class="portfolio__data">
+          <h3 class="portfolio__title">Q&A Highlights</h3>
+          <p class="portfolio__description">Prompt strategy, error modes, and evaluation discussion.</p>
+        </div>
+      </div> -->
+
+    </div>
+
+    <div class="swiper-button-next"><i class="uil uil-angle-right-b swiper-portfolio-icon"></i></div>
+    <div class="swiper-button-prev"><i class="uil uil-angle-left-b swiper-portfolio-icon"></i></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
 
 
     <!-- PROJECTS -->
@@ -692,6 +879,39 @@
             <div class="swiper-pagination"></div>
         </div>
     </section>
+    <!-- TESTIMONIALS -->
+<section class="testimonial section" id="testimonials">
+  <h2 class="section__title">Testimonials</h2>
+  <span class="section__subtitle">Endorsements from professors & mentors</span>
+
+  <div class="testimonial__container container swiper-container">
+    <div class="swiper-wrapper">
+
+      <!-- Daniel Amyot -->
+      <div class="testimonial__content swiper-slide">
+        <div class="testimonial__data">
+          <div class="testimonial__header">
+            <img src="./assets/img/daniel-amyot.jpg" alt="Daniel Amyot" class="testimonial__img">
+            <div>
+              <h3 class="testimonial__name">Prof. Daniel Amyot</h3>
+              <span class="testimonial__client">Professor @ University of Ottawa, Director of SEDTi</span>
+            </div>
+          </div>
+        </div>
+        <p class="testimonial__description">
+          “Fantastic work Mounira! This was one of the fastest undergraduate projects I have seen too! 
+          You finished early enough to write and submit a good paper to a workshop of the top Software Engineering 
+          conference (ICSE) <em>and</em> get it accepted! Your hard work paid off. Congratulations again.”
+        </p>
+      </div>
+
+      <!-- Add more testimonials as slides later -->
+    </div>
+
+    <div class="swiper-pagination swiper-pagination-testimonial"></div>
+  </div>
+</section>
+
 
     <!-- CONTACT -->
     <section class="contact section" id="contact">
