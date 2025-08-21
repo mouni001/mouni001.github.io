@@ -250,28 +250,13 @@ img {
   transition: .3s;
 }
 
-.nav__toggle {
-  font-size: 1.1rem;
-  cursor: pointer;
-}
+
 
 .nav__toggle:hover {
   color: var(--first-color);
 }
 
-@media screen and (max-width: 767px) {
-  .nav__menu {
-    position: fixed;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--body-color);
-    padding: 2rem 1.5rem 4rem;
-    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 1.5rem 1.5rem 0 0;
-    transition: .3s;
-  }
-}
+
 
 .nav__list {
   grid-template-columns: repeat(3, 1fr);
@@ -296,15 +281,34 @@ img {
 .nav__icon {
   font-size: 1.2rem;
 }
+/* Make the mobile drawer sit above everything */
+@media (max-width: 767px) {
+  .nav__menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: -100%;
+    top: auto;                 /* ensure it's a bottom sheet */
+    z-index: var(--z-modal);   /* <-- key: above header/content */
+    padding: 2rem 1.5rem 5rem; /* a bit more bottom padding */
+    border-radius: 1.25rem 1.25rem 0 0;
+    box-shadow: 0 -8px 24px rgba(0,0,0,.15);
+    transition: bottom .3s ease; /* explicit prop */
+  }
 
-.nav__close {
-  position: absolute;
-  right: 1.3rem;
-  bottom: .5rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--first-color);
+  /* keep toggle/close above the sheet edges for clean taps */
+  .nav__toggle,
+  .nav__close {
+    z-index: var(--z-modal);
+    position: relative;
+  }
+
+  /* optional: prevent background scrolling when menu is open */
+  body.menu-open { overflow: hidden; }
 }
+
+/* already present, just making sure it's here */
+.show-menu { bottom: 0; }
 
 .nav__close:hover {
   color: var(--first-color-alt);
@@ -624,17 +628,72 @@ img {
 }
 
 /*==================== SKILLS ====================*/
-.skills__container {
-  display:grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap:14px;
+.skills__content {
+  background: var(--container-color);
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
+/* Header row */
 .skills__header {
   display: flex;
   align-items: center;
-  margin-bottom: var(--mb-2-5);
+  justify-content: space-between;
   cursor: pointer;
+  user-select: none;
+}
+.skills__header:hover {
+  color: var(--first-color);
+}
+/* Arrow */
+.skills__arrow {
+  font-size: 1.25rem;
+  color: var(--text-color-light);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.skills__header:hover .skills__arrow {
+  color: var(--first-color);
+}
+
+/* Rotate arrow when open */
+.skills__content.skills__open .skills__arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown list */
+.skills__list {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition: all 0.35s ease;
+}
+
+/* Show content when open */
+.skills__content.skills__open .skills__list {
+  max-height: 500px; /* big enough for content */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Bullets */
+.skills__bullets li {
+  margin: .4rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+  color: var(--text-color);
+}
+
+.skills__bullets li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--first-color);
+  font-weight: bold;
 }
 
 .skills__icon, .skills__arrow {
@@ -1731,28 +1790,136 @@ img {
   .timeline__content { opacity: 1 !important; transform: none !important; }
   .timeline__dot { transform: none !important; }
 }
+/*==================== LEADERSHIP ====================*/
+/* ===== Leadership — polished card with rose accent, good dark mode ===== */
+
+/* Contain the card nicely inside your container */
+#leadership .container {
+  max-width: 900px;  /* optional: match your site width */
+  margin-inline: auto;
+}
+
+/* Card */
 .leadership__card{
+  position: relative;
   display:grid;
   grid-template-columns:auto 1fr;
   gap:1rem;
   align-items:start;
-  background:var(--container-color);
+  padding:1.25rem 1.25rem 1.15rem;
   border-radius:1rem;
-  padding:1.25rem;
-  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  border:1px solid var(--scroll-bar-color);
+  background:
+    linear-gradient(180deg, var(--container-color), rgba(0,0,0,0) 140%),
+    radial-gradient(120% 100% at 110% -10%, rgba(198,123,145,.10), transparent 60%);
+  box-shadow:0 8px 22px rgba(0,0,0,.08);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  overflow:hidden;
 }
+
+/* subtle rose accent bar */
+.leadership__card::before{
+  content:"";
+  position:absolute; left:0; right:0; top:0; height:4px;
+  background: linear-gradient(90deg, var(--first-color), var(--first-color-alt));
+  opacity:.9;
+}
+
+/* hover lift */
+@media (hover:hover) {
+  .leadership__card:hover{
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--first-color) 28%, var(--scroll-bar-color));
+    box-shadow:0 16px 44px rgba(0,0,0,.12);
+  }
+}
+
+/* Logo with soft ring */
 .leadership__logo{
-  width:52px; height:52px; object-fit:contain;
-  border-radius:.5rem; background:var(--body-color);
+  width:64px; height:64px; object-fit:contain;
+  border-radius:12px;
+  background:
+    radial-gradient(70% 70% at 50% 35%, var(--first-color-lighter), transparent 70%),
+    var(--body-color);
+  box-shadow:
+    inset 0 0 0 1px var(--scroll-bar-color),
+    0 4px 12px rgba(0,0,0,.06);
 }
-.leadership__title{ font-size:1.1rem; margin:0 0 .25rem; }
-.leadership__meta{ margin:0 0 .5rem; color:var(--text-color-light); }
-.leadership__list{ margin:.25rem 0 .75rem 1rem; }
-.leadership__list li{ margin:.25rem 0; }
+
+/* Text hierarchy */
+.leadership__title{
+  font-size:1.12rem; line-height:1.25;
+  margin:0 0 .25rem;
+  letter-spacing:.2px;
+  color: var(--title-color);
+}
+.leadership__meta{
+  margin:0 0 .6rem;
+  color: var(--text-color-light);
+  font-size:.92rem;
+}
+
+/* Nicer bullets */
+.leadership__list{
+  margin:.35rem 0 .9rem 0;
+  padding-left:0;
+  list-style:none;
+}
+.leadership__list li{
+  position:relative;
+  margin:.35rem 0;
+  padding-left:1.5rem;
+}
+.leadership__list li::before{
+  content:"";
+  position:absolute; left:0; top:.42rem;
+  width:.85rem; height:.85rem; border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, #fff 10%, var(--first-color) 40%, var(--first-color-alt) 100%);
+  box-shadow: 0 2px 6px rgba(0,0,0,.10);
+}
+
+/* Tags */
 .leadership__tags .tag{
-  display:inline-block; font-size:.75rem; line-height:1;
-  padding:.35rem .6rem; border-radius:9999px;
-  background:var(--first-color-lighter); color:var(--first-color);
+  display:inline-block; line-height:1;
+  font-size:.72rem;
+  padding:.32rem .55rem;
+  border-radius:9999px;
+  background: color-mix(in srgb, var(--first-color-lighter) 85%, #fff 15%);
+  border: 1px solid color-mix(in srgb, var(--first-color) 25%, transparent);
+  color: color-mix(in srgb, var(--first-color) 88%, #000 12%);
   margin-right:.4rem; margin-top:.25rem;
 }
 
+
+
+/* ===== Dark theme tuning: keep it cozy, not murky ===== */
+body.dark-theme .leadership__card{
+  background:
+    linear-gradient(180deg, var(--container-color), rgba(0,0,0,0) 140%),
+    radial-gradient(120% 100% at 110% -10%, rgba(208,138,161,.12), transparent 60%);
+  border-color: rgba(255,255,255,.06);
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+}
+body.dark-theme .leadership__card::before{ opacity:.95; }
+
+body.dark-theme .leadership__logo{
+  background:
+    radial-gradient(70% 70% at 50% 35%, rgba(208,138,161,.14), transparent 70%),
+    var(--body-color);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.05),
+    0 4px 12px rgba(0,0,0,.3);
+}
+
+body.dark-theme .leadership__list li::before{
+  box-shadow: 0 2px 6px rgba(0,0,0,.35);
+}
+body.dark-theme .leadership__tags .tag{
+  background: color-mix(in srgb, var(--first-color-lighter) 25%, var(--container-color) 75%);
+  border-color: rgba(255,255,255,.06);
+  color: var(--title-color);
+}
+body.dark-theme #leadership .section__subtitle{
+  background: color-mix(in srgb, var(--first-color-lighter) 15%, var(--container-color) 85%);
+  border-color: rgba(255,255,255,.06);
+}
